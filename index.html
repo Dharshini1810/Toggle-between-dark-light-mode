@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" lang="EN">
+    <title>Landing Page!</title>
+    <script src="https://kit.fontawesome.com/9ea84a7434.js" crossorigin="anonymous"></script>
+    <style>
+        .container{
+            display: flex; 
+            flex-direction: row-reverse; 
+            justify-content: flex-start;   
+            flex-wrap: wrap;
+        } 
+        a{
+            text-decoration: none;
+        }
+        uli{
+            padding-left: 3rem; 
+            color: #dd6564;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 19px;
+            font-weight: bolder
+        } 
+
+        /*uli:nth-child(3){
+            order: 4;
+        } */
+        .container0{
+            display: flex; 
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+        .container1{
+            display: flex;
+            width: 50%;
+            flex-direction: column;
+            padding-top: 90px;
+            padding-left: 90px;
+        }  
+        .container2{
+            display: flex; 
+            flex-direction: column;
+            padding-top: 90px;
+            padding-left: 15px;
+            position: relative;  
+
+        }
+        .container2 .square{
+            height: 22rem;
+            width: 22rem;
+            background-color: #EE6C8A;
+            box-shadow:  3px 10px 15px #bbb;             
+
+        } 
+        .square1{ 
+            margin-top: -180px;
+            margin-left: 220px;
+            height: 22rem;
+            width: 22rem;
+            background-color: #e75480 ;
+            /* box-shadow: 0px 9px 19px 19px #000   */
+            box-shadow: 3px 10px 15px #bbb
+        }
+        .container1 h1{
+            font-size: 95px; 
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            color: #dd6564; 
+            text-shadow: 3px 3px #bbb;
+        }
+        .container1 p{
+            font-family: cursive; 
+            font-style: inherit; 
+            font-weight: 2px; 
+            color: #65000b
+        } 
+        #img{
+                position: absolute;  
+                width: 27rem;  
+                height: 37rem;
+                bottom: 0rem;
+                left: 4.5rem; 
+                filter: grayscale(100%);
+            } 
+            #icon{
+                color: black;
+                width: 50px;
+            }
+    </style>
+</head>
+<body> 
+    <nav>
+        <ul class="container">
+            <div id="toggleoptn" onclick="toggle()" class="dark">
+            <uli><i id="icon" class="fa-solid fa-paw"></i></uli></div>
+            <a href="index.html">
+            <uli>Contact</uli></a> 
+             <a href="index.html">
+            <uli>About</uli></a>
+            <a href="index.html">
+            <uli>Home</uli></a>           
+        </ul>
+    </nav> 
+    <div class="container0">
+    <div class="container1">
+        <h1>Parker here!!</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor<br> incididunt ut labore et dolore 
+            magna aliqua. Ut enim ad minim veniam, quis
+        </p>    
+    </div>  
+    <div class="container2"> 
+        <div class="square"></div>
+        <div class="square1"></div> 
+        <img onmouseover="imgblur()" onmouseout="imgoriginal()" src="img.png" id="img">   
+    </div> 
+    </div> 
+    <script>
+        function imgblur(){
+            document.getElementById("img").style.filter="grayscale(0%)";
+
+        } 
+        function imgoriginal(){
+            document.getElementById("img").style.filter="grayscale(100%)";
+        }  
+        function toggle(){
+            if(document.getElementById("toggleoptn").className==="dark"){
+                darktheme();
+            } 
+            else{
+                lighttheme();
+            }
+        }
+        function darktheme(){ 
+            document.getElementById("toggleoptn").className="light";
+            document.body.style.backgroundColor="#121212";
+            document.getElementById("icon").style.color="#6BD0FF";
+            document.getElementsByTagName("h1")[0].style.color="#6BD0FF"; 
+            document.getElementsByTagName("h1")[0].style.textShadow="none"; 
+            for(var i=0;i<4;i++){
+                document.getElementsByTagName("uli")[i].style.color="#6BD0FF";
+            }     
+            document.getElementsByClassName("square")[0].style.backgroundColor="#121212";
+            document.getElementsByClassName("square")[0].style.boxShadow="0px 1px 2px 0px rgba(0,255,255,0.7),1px 2px 4px 0px rgba(0,255,255,0.7),2px 4px 8px 0px rgba(0,255,255,0.7),2px 4px 16px 0px rgba(0,255,255,0.7)";
+            document.getElementsByClassName("square1")[0].style.backgroundColor="#121212";
+            document.getElementsByClassName("square1")[0].style.boxShadow="0px 1px 2px 0px rgba(0,255,255,0.7),1px 2px 4px 0px rgba(0,255,255,0.7),2px 4px 8px 0px rgba(0,255,255,0.7),2px 4px 16px 0px rgba(0,255,255,0.7)";
+            document.getElementsByTagName("p")[0].style.color="#AFDBF5"; 
+
+        } 
+        function lighttheme(){ 
+            document.getElementById("toggleoptn").className="dark";
+            document.body.style.backgroundColor="white";
+            document.getElementById("icon").style.color="black";
+            document.getElementsByTagName("h1")[0].style.color="#dd6564"; 
+            document.getElementsByTagName("h1")[0].style.textShadow="3px 3px #bbb"; 
+            for(var i=0;i<4;i++){
+                document.getElementsByTagName("uli")[i].style.color="#dd6564";
+            }     
+            document.getElementsByClassName("square")[0].style.backgroundColor="#EE6C8A";
+            document.getElementsByClassName("square")[0].style.boxShadow="3px 10px 15px #bbb";
+            document.getElementsByClassName("square1")[0].style.backgroundColor="#EE6C8A";
+            document.getElementsByClassName("square1")[0].style.boxShadow="3px 10px 15px #bbb";
+            document.getElementsByTagName("p")[0].style.color="#65000b"; 
+        }
+    </script>
+</body>
+</html>
